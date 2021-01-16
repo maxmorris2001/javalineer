@@ -1,7 +1,8 @@
-package edu.lsu.cct.javalineer.test;
-
 import java.util.*;
 import edu.lsu.cct.javalineer.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class March2 implements Runnable {
@@ -90,8 +91,9 @@ public class March2 implements Runnable {
         }
       }
 
-      public static void main(String[] args) {
-        Test.requireAssert();
+    @Test
+    @DisplayName("March2")
+    public void testMarch2() {
         Pool.run(new March2());
         Pool.await();
       }

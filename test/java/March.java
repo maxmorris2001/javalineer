@@ -1,7 +1,10 @@
-package edu.lsu.cct.javalineer.test;
-
 import edu.lsu.cct.javalineer.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import java.util.*;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ProdCon {
 
@@ -153,8 +156,9 @@ class Segment {
 
 public class March {
 
-    public static void main(String[] args) {
-        Test.requireAssert();
+    @Test
+    @DisplayName("March1")
+    public void testMarch() {
         System.out.println("Segment.N_SEGS=" + Segment.N_SEGS);
         final List< Segment> segs = new ArrayList<>();
         for (int i = 0; i < Segment.N_SEGS; i++) {
@@ -183,6 +187,6 @@ public class March {
             seg.runStep(0);
         }
         Pool.await();
-        assert Segment.complete;
+        assertTrue(Segment.complete);
     }
 }

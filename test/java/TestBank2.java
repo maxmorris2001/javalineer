@@ -1,6 +1,6 @@
-package edu.lsu.cct.javalineer.test;
-
 import edu.lsu.cct.javalineer.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 public class TestBank2 {
 
@@ -21,9 +21,9 @@ public class TestBank2 {
         }
     }
 
-    public static void main(String[] args) {
-        Test.requireAssert();
-
+    @Test
+    @DisplayName("Bank2")
+    public void testBank2() {
         GuardVar<Bank> a = new GuardVar<>(new Bank());
 
         for(int i=0;i<1000;i++) {

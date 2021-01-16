@@ -1,5 +1,3 @@
-package edu.lsu.cct.javalineer.test;
-
 import edu.lsu.cct.javalineer.*;
 import java.util.*;
 
@@ -17,7 +15,6 @@ public class TestGuard {
             c2++;
     }
     public static void main(String[] args) throws Exception {
-        Test.requireAssert();
         Guard g1 = new Guard();
         Guard g2 = new Guard();
         TreeSet<Guard> ts = new TreeSet<>();

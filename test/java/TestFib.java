@@ -1,8 +1,10 @@
-package edu.lsu.cct.javalineer.test;
-
 import edu.lsu.cct.javalineer.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.CompletableFuture;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestFib {
     static int fibc(int n) {
@@ -29,14 +31,14 @@ public class TestFib {
         return f1.thenCombine(f2, Integer::sum);
     }
 
-    public static void main(String[] args) {
-        Test.requireAssert();
-
+    @Test
+    @DisplayName("Fib")
+    public void testFib() {
         for(int i = 5; i < 40; i++) {
             final int f = i;
             fib(f).thenAccept(n -> {
                 System.out.printf("fib(%d)=%d%n", f, n);
-                assert n == fibc(f);
+                assertEquals(n, fibc(f));
             });
         }
 

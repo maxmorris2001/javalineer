@@ -1,6 +1,9 @@
-package edu.lsu.cct.javalineer.test;
+import edu.lsu.cct.javalineer.GuardVar;
+import edu.lsu.cct.javalineer.Pool;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-import edu.lsu.cct.javalineer.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestBank {
 
@@ -23,9 +26,9 @@ public class TestBank {
 
     static int failures = 0;
 
-    public static void main(String[] args) {
-        Test.requireAssert();
-
+    @Test
+    @DisplayName("Bank")
+    public void bankTest() {
         GuardVar<Bank> a = new GuardVar<>(new Bank());
 
         for(int i=0;i<1000;i++) {
@@ -48,7 +51,7 @@ public class TestBank {
 
         a.runGuarded((bank)->{
             out[0] = bank.get().balance;
-            assert out[0] == failures;
+            assertTrue(out[0] == failures);
         });
 
         Pool.await();

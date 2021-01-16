@@ -1,6 +1,7 @@
-package edu.lsu.cct.javalineer.test;
-
 import edu.lsu.cct.javalineer.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class TestBank3 {
@@ -23,9 +24,9 @@ public class TestBank3 {
         }
     }
 
-    public static void main(String[] args) {
-        Test.requireAssert();
-
+    @Test
+    @DisplayName("Bank3")
+    public void testBank3() {
         GuardVar<Bank> a = new GuardVar<>(new Bank());
         GuardVar<Bank> b = new GuardVar<>(new Bank());
 
